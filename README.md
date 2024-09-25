@@ -20,7 +20,7 @@ Ensuite, dans le dossier server, lancer la commande `bun install` puis `bun dev`
 
 ## Application en vue
 Il vous faudra installer pnpm pour lancer l'application. https://pnpm.io/fr/installation
-Depuis la racine du projet, lancer la commande `pnpm dev`
+Depuis la racine du projet, lancer la commande `pnpm install` puis `pnpm dev`
 
 # Fonctionnalités
 
