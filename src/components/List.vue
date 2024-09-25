@@ -5,6 +5,9 @@ import { p } from "../../../../../../opt/anaconda3/lib/python3.12/site-packages/
 const suites = ref([]);
 
 onMounted(async () => {
+  fetch("http://localhost:5000/train").then((response) => {
+    console.log(response.ok ? "Training done" : "Training failed");
+  });
   const response = await fetch("http://localhost:3000/suites");
   suites.value = await response.json();
 });
@@ -164,6 +167,12 @@ const deleteSuite = (id) => {
         v-model="suiteToAdd.price"
         @change="handleChange"
       />
+      <div v-if="predictions.hasGarage !== null && predictions.note !== null">
+        <h4>Predictions</h4>
+        <p v-if="predictions.hasGarage">Il y a un garage</p>
+        <p v-else>Il n'y a pas de garage</p>
+        <p>La note estimée est de {{ predictions.note }}</p>
+      </div>
       <button type="submit">Ajouter</button>
     </form>
   </div>
